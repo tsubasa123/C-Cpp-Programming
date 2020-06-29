@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int testcase = 1;
+    cin>>testcase;
+    while(testcase--)
+    {
+        int sze = 5;
+        cin>>sze;
+        int arr[sze] = {2,4,1,3,5};
+        for(int i=0; i<sze; i++)
+        {
+            cin>>arr[i];
+        }
+        int cnt = 0;
+        for(int i=0; i<sze-1; i++)
+        {
+            for(int j=1; j<sze; j++)
+            {
+                if (arr[i]>arr[j] && i<j)
+                {
+                    cnt++;
+                }
+                else
+                    continue;
+            }
+        }
+        cout<<cnt;
+        cout<<endl;
+    }
+}
+//Time Complexity O(n^2).

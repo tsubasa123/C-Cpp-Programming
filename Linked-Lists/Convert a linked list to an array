@@ -1,0 +1,87 @@
+//convert a linked list to an array
+# include<iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int num;
+    Node *next;
+
+};
+
+Node *createlist (int n)
+{
+    Node *head = NULL;
+    Node *temp = NULL;
+    Node *travel = NULL;
+
+    for(int i=0; i<n; i++)
+    {
+        temp = new Node();
+        cout<<"Enter the element in the "<<i+1<<" node"<<endl;
+        cin>>temp->num;
+        temp->next = NULL;
+
+        if (head == NULL)
+        {
+            head = temp;
+        }
+        else
+        {
+            travel = head;
+            while(travel->next != NULL)
+            {
+                travel = travel->next;
+            }
+            travel->next = temp;
+        }
+    }
+    return head;
+}
+
+void printlist(Node *p)
+{
+    Node *ptr = p;
+    cout<<"The linked list is:"<<endl;
+    cout<<"[";
+    while(ptr != NULL)
+    {
+        cout<<ptr->num<<" ";
+        ptr = ptr->next;
+    }
+    cout<<"]";
+
+}
+
+void convertarray (Node *head, int n)
+{
+    int arr[n];
+    int index =0;
+    Node *ptr = head;
+
+    while (ptr != NULL)
+    {
+        arr[index++] = ptr->num;
+        ptr = ptr->next;
+    }
+    cout<<"\nThe Array is" <<endl;
+    cout<<"[[";
+    for (int i=0; i<n; i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<"]]";
+}
+
+int main()
+{
+    int n{0};
+    Node *start;
+    cout<<"Enter the number of nodes;"<<endl;
+    cin>>n;
+    start = createlist(n);
+    printlist(start);
+    convertarray(start, n);
+    return 0;
+}

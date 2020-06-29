@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+
+    int test = 0;
+
+    cout<<"Enter the number of testcases? ";
+    cin>>test;
+
+    while(test--)
+    {
+        int days = 0;
+
+        cout<<"Enter the number of days? ";
+        cin>>days;
+
+        int price[days];
+
+        vector<int>buy;
+        vector<int>sell;
+
+        int counter = 0;
+
+        for(int i=0; i<days; i++)
+        {
+            cin>>price[i];
+        }
+        int j = 0;
+        while (j < days-1)
+        {
+            while ((j<days-1) && (price[j+1] < price[j]))
+            {
+                j++;
+            }
+            if (j == (days-1))
+            {
+                break;
+            }
+            buy.push_back(j);
+            j=j+1;
+            while ((j<days) &&(price[j] > price[j-1]))
+            {
+               j++;
+            }
+            sell.push_back(j-1);
+            counter++;
+        }
+        if (counter == 0)
+            printf("No Profit");
+        else
+        {
+           for (int k = 0; k < counter; k++)
+           {
+               cout<<buy[k]<<" "<<sell[k]<<" ";
+           }
+        }
+        cout<<endl;
+    }
+    return 0;
+}

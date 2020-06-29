@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void range (int*m , int*n);
+int main()
+{
+    int testcase = 0, sze = 0;
+    cout<<"Enter the numebr of testcase? ";
+    cin>>testcase;
+    while (testcase--)
+    {
+        cout<<"\nEnter the size of the array: ";
+        cin>>sze;
+        int sum = (sze*(sze+1))/2;
+        vector<int>vec;
+        for(int i=0; i<sze-1; i++)
+        {
+            int num;
+            cin>>num;
+            vec.push_back(num);
+        }
+        int vec_sum = 0;
+        for(int m : vec)
+        {
+            vec_sum = vec_sum + m;
+        }
+        cout<<sum - vec_sum<<endl;
+
+
+    }
+}
+

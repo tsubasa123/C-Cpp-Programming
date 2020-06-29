@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int testcases =0;
+   // cout<<"Enter the number of testcases ";
+    cin>>testcases;
+    while(testcases--)
+    {
+        int sze1 = 0 , sze2 = 0;
+        //cout<<"Enter the size of the arrays  ";
+        cin>>sze1>>sze2;
+        int n = sze1+sze2;
+        int arr1[sze1] , arr2[sze2], arr3[n];
+        for(int i=0; i<sze1; i++)
+        {
+            cin>>arr1[i];
+        }
+        for(int i=0; i<sze2; i++)
+        {
+            cin>>arr2[i];
+        }
+        for(int i=0; i<sze1; i++)
+        {
+            arr3[i] = arr1[i];
+        }
+        for (int i = sze1 , j=0 ; i<n, j<sze2; i++,j++)
+        {
+            arr3[i] = arr2[j];
+        }
+        
+        sort(arr3 , arr3+n);
+        for(int i=0; i<n; i++)
+        {
+            cout<<arr3[i]<<" ";
+        }
+        cout<<endl;
+
+    }
+    return 0;
+
+}

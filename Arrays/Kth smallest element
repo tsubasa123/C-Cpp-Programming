@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long long int test=0;
+    cin>>test;
+    while (test--)
+    {
+        long long int sze=0;
+        cin>>sze;
+        long long int arr[sze];
+        for (long long int i=0; i<sze; i++)
+        {
+            cin>>arr[i];
+        }
+        sort(arr, arr+sze);
+        int num;
+        cin>>num;
+        cout<<arr[num-1];
+    }
+}

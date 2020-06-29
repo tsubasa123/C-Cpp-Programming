@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+    int test = 0;
+    cout<<"Enter the number of testcases you wanna enter? ";
+    cin>>test;
+    while (test--)
+    {
+        long long int sze = 0;
+        cout<<"Enter the size of the array? ";
+        cin>>sze;
+        long long int arr[sze], sum_arr[sze];
+        long long int sum=0;
+        for (long long int i=0; i<sze; i++)
+        {
+            cin>>arr[i];
+            sum += arr[i];
+            sum_arr[i] = sum;
+        }
+        int ReverseSum = 0, answer = 0;
+        for (long long i=(sze-1); i>=0; i--)
+        {
+            ReverseSum += arr[i];
+            if (sum_arr[i] == ReverseSum)
+            {
+                answer = i+1;
+            }
+        }
+
+        if (answer == 0)
+        {
+            cout<<"-1" ;
+        }
+        else
+            cout<<answer;
+
+        cout<<endl;
+
+    }
+    return 0;
+}

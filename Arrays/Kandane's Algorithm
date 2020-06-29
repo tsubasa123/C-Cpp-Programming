@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int testcase=0;
+    cin>>testcase;
+    while(testcase--)
+    {
+        int sze =0;
+        cin>>sze;
+        int arr[sze];
+        for(int i=0; i<sze; i++)
+        {
+            cin>>arr[i];
+        }
+        int max_current;
+        int max_sofar;
+        max_current = max_sofar = arr[0];
+        for(int i =1; i<sze; i++)
+        {
+            max_current = max(arr[i], max_current + arr[i]);
+            if (max_current > max_sofar)
+            {
+                max_sofar = max_current;
+            }
+        }
+        cout<<max_sofar;
+        cout<<endl;
+    }
+}

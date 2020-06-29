@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int test = 0;
+    cin>>test;
+    while (test--)
+    {
+        char str[1000];
+        char remain[1000];
+        int i=0 , j=0, index = 0;
+        cin>>ws;
+        gets(str);
+        for (i=0; i<strlen(str); i++)
+        {
+            for (j=0; j<i; j++)
+            {
+                if (str[j] == str[i])
+                {
+                    break;
+                }
+            }
+            if (j == i)
+            {
+                remain[index++] = str[i];
+            }
+
+        }
+        for (i =0; i<strlen(remain); i++)
+        {
+            cout<<remain[i];
+        }
+
+    cout<<endl;
+    }
+    return 0;
+}
